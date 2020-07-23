@@ -1,0 +1,167 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="container">
+    <div class="modal" id="userModel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Details</h4>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+
+                <div class="modal-body">
+                    <form class="form-group">
+
+                        <input type="hidden" name="_id" #_id ="ngModel" [(ngModel)] = "userDetails._id"
+                            class="form-control"><br/>
+                        Full Name <br/> 
+                        <input type="text" name="fullName" #fullName ="ngModel" [(ngModel)]="userDetails.fullName"
+                            class="form-control"><br />
+                        Email <br/>
+                        <input type="text" name="email" #email ="ngModel" [(ngModel)]="userDetails.email"
+                            class="form-control"><br />
+                        <input type="hidden" name="password" #passoword ="ngModel" [(ngModel)]="userDetails.password"
+                            class="form-control"><br />
+                        Contact/Ph No.<input type="text" name="contact" #contact ="ngModel" [(ngModel)]="userDetails.contact" class="form-control"><br />
+                        Experience<input type="text" name="experience" #experience ="ngModel" [(ngModel)]="userDetails.experience"
+                            class="form-control"><br />
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary btn-sm" (click)="updateEmp()" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        {{userDetails.fullName}}
+                                    </h5>
+                                    <h6>
+                                        {{userDetails.experience}}
+                                    </h6>
+                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                            <button (click) ="showEditPopup(userDetails)"> Edit Profile</button>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>Find Me on</p>
+                            <a href="https://www.linkedin.com/in/pravallika-n-9125a1168/">LinkedIn</a><br/>
+                            <p>SKILLS</p>
+                            <a href="">Computer Science - elementary</a><br/>
+                            <a href="">Personality Development</a><br/>
+                            <a href="">Drawing</a><br/>
+                            <a href="">Mathematics</a><br/>
+                            <a href="">Web Designer</a><br/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{userDetails.fullName}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{userDetails.email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{userDetails.contact}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Student</p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Experience</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Expert</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Total Sessions</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>3</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Languages Familiar:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>English</p>
+                                            </div>
+                                        </div>
+                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Bio</label><br/>
+                                        <p>{{userDetails.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                            <input type="button" (click)="onLogout()" value="Logout" /> 
+                            </div>
+                            </div>  
+                    </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
