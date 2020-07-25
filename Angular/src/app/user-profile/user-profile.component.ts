@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {
     this.selectedUser = { _id:'',fullName:'',email:'',password:'',contact:'',experience:''};
     //this.editUser = { _id:'',fullName:'',email:'',password:'',contact:'',experience:''};
-    this.userDetails = { _id:'',fullName:'',email:'',password:'',contact:'',experience:''};
+    this.userDetails = {id:'',fullName:'',email:'',password:'',contact:'',experience:''};
 
    }
 
