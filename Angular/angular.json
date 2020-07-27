@@ -20,22 +20,19 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.png",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css",
+            "styles": ["src/styles.css",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
               "src/assets/plugins/OwlCarousel2-2.2.1/animate.css",
               "src/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css",
               "src/assets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css",
-              "src/assets/styles/bootstrap4/bootstrap.min.css",
               "src/assets/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css"
 
             ],
             "scripts": ["node_modules/jquery/dist/jquery.js",
-              "src/assets/js/jquery-3.2.1.min.js",
-              "src/assets/styles/bootstrap4/popper.js",
-              "src/assets/styles/bootstrap4/bootstrap.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
               "src/assets/js/custom.js",
               "src/assets/plugins/scrollmagic/ScrollMagic.min.js",
               "src/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js",
@@ -46,7 +43,6 @@
               "src/assets/plugins/parallax.js-2.0.0/jquery.parallax.min.js",
               "src/assets/plugins/progressbar/progressbar.min.js",
               "src/assets/plugins/easing/easing.js",
-              "src/assets/js/contact_custom.js",
               "src/assets/js/courses_custom.js",
               "src/assets/js/teachers_custom.js"
             ]

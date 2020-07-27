@@ -14,11 +14,11 @@ declare var M:any;
 export class UserProfileComponent implements OnInit {
 
   userDetails:any;
-  selectedUser: any;
+  //selectedUser: any;
   editUser:any;
   constructor(private userService: UserService, private router: Router) {
-    this.selectedUser = { _id:'',fullName:'',email:'',password:'',contact:'',experience:''};
-    //this.editUser = { _id:'',fullName:'',email:'',password:'',contact:'',experience:''};
+    //this.selectedUser = { _id:'',fullName:'',email:'',password:'',contact:'',experience:''};
+    this.editUser = {id:'',fullName:'',email:'',password:'',contact:'',experience:''};
     this.userDetails = {id:'',fullName:'',email:'',password:'',contact:'',experience:''};
 
    }
@@ -27,7 +27,7 @@ export class UserProfileComponent implements OnInit {
     this.userService.getUserProfile().subscribe(
       res => {
         this.userDetails = res['user'];
-        console.log(this.userDetails._id);
+        console.log(this.userDetails.id);
       },
       err => { 
         console.log(err);
@@ -47,7 +47,7 @@ export class UserProfileComponent implements OnInit {
   }
   
   updateEmp() {
-    console.log(this.userDetails);
+    //console.log(this.userDetails);
     this.userService.putUser(this.userDetails).subscribe(res => {
       this.refreshUserProfile();
     M.toast({ html: 'Updated successfully!', classes: 'rounded' });

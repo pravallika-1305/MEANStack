@@ -12,15 +12,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-  selectedUser: User = {
-    _id:'',
-    fullName: '',
-    email: '',
-    password: '',
-    contact: '',
-    experience:''
-
-  };
+  selectedUser: User;
   noAuthHeader = { headers: new HttpHeaders({ 'NoAuth': 'True' }) };
   constructor(public http: HttpClient) { }
 
@@ -28,6 +20,7 @@ export class UserService {
     return this.http.post(environment.apiBaseUrl+'/register',user);
   }
   login(authCredentials) {
+    //console.log(authCredentials);
     return this.http.post(environment.apiBaseUrl + '/authenticate', authCredentials,this.noAuthHeader);
   }
 
@@ -68,10 +61,8 @@ export class UserService {
       return false;
   }
   putUser(user: User) {
-    //let headers = new Headers();
-    //this.getToken();
     console.log(user);
-    return this.http.put(environment.apiBaseUrl + '/update', user);
+    return this.http.put(environment.apiBaseUrl + '/update'+`/${user.id}`, user);
   }
 
 }
