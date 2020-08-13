@@ -1,0 +1,44 @@
+<!-- Contact -->
+
+<div class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                
+                <!-- Contact Form -->
+                <form style="width: 50%; margin: auto">
+                <mat-card>
+                    <mat-form-field appearance="fill">
+                        <input matInput placeholder="name" [formControl]="nameFormControl" required>
+                        <mat-error *ngIf="nameFormControl.invalid">{{getErrorMessage()}}</mat-error>
+                      </mat-form-field>
+              <br/>
+              <br/>
+              <br/>
+              <mat-form-field appearance="fill">
+                <input matInput placeholder="phone number" [formControl]="phoneFormControl" required>
+                <mat-error *ngIf="phoneFormControl.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+<br/>
+<br/>
+<br/>
+              <mat-form-field appearance="fill">
+                <!--input matInput placeholder="message" [formControl]="messageFormControl" required-->
+                <textarea matInput placeholder="message" [formControl]="messageFormControl" required></textarea>
+                <mat-error *ngIf="messageFormControl.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+<br/>
+              <br/>
+              <br/>
+              
+                  <button
+                    mat-raised-button
+                    [disabled]="phoneFormControl.invalid || nameFormControl.invalid || messageFormControl.invalid || loading"
+                    color="primary"
+                    (click)="register()"
+                  >
+                    {{buttonText}}
+                  </button>
+                </mat-card>
+              </form>	
+            </div>
